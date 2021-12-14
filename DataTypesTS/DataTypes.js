@@ -1,0 +1,14 @@
+var productId = 101;
+var productName = 'Chess board';
+var price = 99.5;
+var isAvailable = true;
+console.log('productID: ', productId);
+console.log('productName: ', productName);
+console.log('price: ', price);
+console.log('Availability: ', isAvailable);
+var contact;
+console.log(typeof contact);
+contact = 89418914894;
+console.log(typeof contact);
+contact = 'john@gmail.com';
+console.log(typeof contact);
