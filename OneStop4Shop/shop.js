@@ -12,7 +12,7 @@ console.log('\n -----Welcome to the world of shopping-----');
 console.log(' 1. View all products');
 console.log(' 2. Bill products');
 console.log(' 3. Exit');
-choice = 1;
+choice = 2;
 if (choice == 1) {
     //View the products
     console.log();
@@ -23,7 +23,20 @@ if (choice == 1) {
 }
 else if (choice == 2) {
     //Bill the products
-    console.log('You have chosen to bill the products.');
+    //Bill the products
+    var subTotal = 0;
+    for (var i = 0; i < price.length; i++) {
+        subTotal += price[i];
+    }
+    var discount = 0.1;
+    var discountPrice = 0;
+    if (subTotal > 300) {
+        discountPrice = subTotal * discount;
+    }
+    var total = subTotal - discountPrice;
+    console.log("Subtotal: $".concat(subTotal));
+    console.log("Discount: ".concat(discount * 100, "% $").concat(discountPrice));
+    console.log("Total: $".concat(total));
 }
 else if (choice == 3) {
     console.log('You have chosen to exit.');
