@@ -1,4 +1,5 @@
 import { Buddy } from './Buddy';
+import { Gender } from './Gender';
 import { Trainee } from './Trainee';
 
 const trOne = new Trainee(
@@ -6,7 +7,7 @@ const trOne = new Trainee(
   'John',
   9945455272,
   'john@gmail.com',
-  'Male',
+  Gender.Male,
   new Date('December 19, 1981 10:13:00')
 );
 
@@ -15,7 +16,7 @@ const trTwo: Trainee = new Trainee(
   'Jack',
   9945455279,
   'jack@gmail.com',
-  'Male ',
+  Gender.Male,
   new Date('December 21, 1981 10:13:00')
 );
 

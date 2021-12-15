@@ -1,9 +1,11 @@
+import { Gender } from './Gender';
+
 export class Trainee {
   pcNumber: number;
   traineeName: string;
   phoneNumber: number;
   emailId: string;
-  gender: string;
+  gender: Gender;
   dob: Date;
 
   constructor(
@@ -11,7 +13,7 @@ export class Trainee {
     traineeName: string,
     phoneNumber: number,
     emailId: string,
-    gender: string,
+    gender: Gender,
     dob: Date
   ) {
     this.pcNumber = pcNumber;
