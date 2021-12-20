@@ -1,0 +1,19 @@
+<h3 style="text-align: center">Two Way Binding</h3>
+<br />
+<div class="row">
+  <div class="col-md-4" style="text-align: right"></div>
+  <div class="col-md-3" style="margin-left: 55px; background-color: beige">
+    <br />
+    <label>First Name</label>&nbsp;
+    <input type="text" [(ngModel)]="firstName" />
+    <br />
+    <br />
+    <label>Last Name</label>&nbsp;
+    <input type="text" [(ngModel)]="lastName" />
+    <br />
+    <br />
+    <label>Full Name:</label> {{ firstName }} {{ lastName }}
+    <br />
+  </div>
+  <div class="col-md-4" style="text-align: right"></div>
+</div>
