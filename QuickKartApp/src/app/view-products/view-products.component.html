@@ -2,6 +2,10 @@
   <h1>View Products</h1>
   <br />
   <div class="row">
+    <div><label>Search:</label></div>
+    <div class="col-md-2">
+      <input type="text" (change)="searchProductName($event)" />
+    </div>
     <div class="col-md-10" style="text-align: right">
       <label>Filter products:</label>
     </div>

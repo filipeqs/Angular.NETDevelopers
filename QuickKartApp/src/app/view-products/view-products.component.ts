@@ -10,6 +10,8 @@ import { IProduct } from '../interfaces/Product';
 export class ViewProductsComponent implements OnInit {
   products: IProduct[];
   filteredProducts: IProduct[];
+  categoryId: string = '0';
+  searchInput: string = '';
   categories: ICategory[];
   imageSrc: string;
   showMsgDiv: boolean = false;
@@ -70,14 +72,38 @@ export class ViewProductsComponent implements OnInit {
   }
 
   searchProductsByCategory(categoryId: string) {
+    this.categoryId = categoryId;
+
     this.filteredProducts = this.products;
 
-    if (categoryId == '0') {
+    this.search();
+  }
+
+  searchProductName(searchInput) {
+    this.searchInput = searchInput.target.value;
+
+    this.search();
+  }
+
+  search() {
+    if (this.categoryId == '0' && this.searchInput == '') {
       this.filteredProducts = this.products;
-    } else {
-      this.filteredProducts = this.filteredProducts.filter(
-        (product) => product.categoryId.toString() == categoryId
+    } else if (this.searchInput == '') {
+      this.filteredProducts = this.products.filter(
+        (product) => product.categoryId.toString() == this.categoryId
       );
+    } else {
+      if (this.categoryId == '0') {
+        this.filteredProducts = this.products.filter((product) =>
+          product.productName.includes(this.searchInput)
+        );
+      } else {
+        this.filteredProducts = this.products.filter(
+          (product) =>
+            product.productName.includes(this.searchInput) &&
+            product.categoryId.toString() == this.categoryId
+        );
+      }
     }
   }
 }
