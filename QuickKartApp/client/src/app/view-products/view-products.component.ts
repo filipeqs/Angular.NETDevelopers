@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../interfaces/Category';
 import { IProduct } from '../interfaces/Product';
-import { ProductService } from '../services/product-service/product.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-view-products',

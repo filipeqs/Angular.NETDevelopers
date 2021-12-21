@@ -1,0 +1,30 @@
+<div class="container" style="text-align: center">
+  <h1>Purchases</h1>
+  <br />
+  <div class="table-responsive">
+    <table
+      class="table"
+      style="border: 5px solid rgba(220, 230, 242, 1)"
+      *ngIf="purchases"
+    >
+      <tr style="background-color: rgba(220, 230, 242, 1); font-size: 12pt">
+        <th style="text-align: center">Purchase Id</th>
+        <th style="text-align: center">Purchase Name</th>
+        <th style="text-align: center">Quantity Purchased</th>
+        <th style="text-align: center">Date of Purchase</th>
+      </tr>
+      <tr
+        *ngFor="let purchase of purchases"
+        style="background-color: white; font-size: 10pt"
+      >
+        <td>{{ purchase.purchaseId }}</td>
+        <td>{{ purchase.productName }}</td>
+        <td>{{ purchase.quantityPurchased }}</td>
+        <td>{{ purchase.purchaseDate | date: "dd/MM/yyyy" }}</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="errorMsg">
+    <h4 class="jumbotron" style="text-align: center">{{ errorMsg }}</h4>
+  </div>
+</div>

@@ -1,28 +1,24 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
-import { ICategory } from 'src/app/interfaces/Category';
-import { IProduct } from 'src/app/interfaces/Product';
+import { IPurchaseDetails } from '../interfaces/IPurchaseDetails';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
+export class PurchaseService {
   baseUrl = 'http://localhost:11990';
-  products: IProduct[];
-  categories: ICategory[];
 
   constructor(private http: HttpClient) {}
 
-  getProducts() {
+  getPurchaseDetails() {
+    const emailId = 'Franken@gmail.com';
     return this.http
-      .get<IProduct[]>(this.baseUrl + '/api/Product/GetProducts')
-      .pipe(catchError(this.errorHandler));
-  }
-
-  getProductCategories() {
-    return this.http
-      .get<ICategory[]>(this.baseUrl + '/api/Category/GetCategories')
+      .get<IPurchaseDetails[]>(
+        this.baseUrl +
+          '/api/Purchase/GetPurchaseDetailsByEmailId?emailId=' +
+          emailId
+      )
       .pipe(catchError(this.errorHandler));
   }
 
