@@ -1,0 +1,30 @@
+<div class="container" style="text-align: center">
+  <h1>Cart Products</h1>
+  <br />
+  <div class="table-responsive">
+    <table
+      class="table"
+      style="border: 5px solid rgba(220, 230, 242, 1)"
+      *ngIf="cartProducts"
+    >
+      <tr style="background-color: rgba(220, 230, 242, 1); font-size: 12pt">
+        <th style="text-align: center">Product Name</th>
+        <th style="text-align: center">Price</th>
+        <th style="text-align: center">Quantity</th>
+        <th style="text-align: center">Total Amount</th>
+      </tr>
+      <tr
+        *ngFor="let products of cartProducts"
+        style="background-color: white; font-size: 10pt"
+      >
+        <td>{{ products.productName }}</td>
+        <td>{{ products.price }}</td>
+        <td>{{ products.quantity }}</td>
+        <td>{{ products.quantityAvailable }}</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="errorMsg">
+    <h4 class="jumbotron" style="text-align: center">{{ errorMsg }}</h4>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { CommonLayoutComponent } from './layouts/common-layout/common-layout.component';
 import { PurchasesComponent } from './purchases/purchases.component';
+import { CartProductsComponent } from './cart-products/cart-products.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PurchasesComponent } from './purchases/purchases.component';
     FeedbackComponent,
     CommonLayoutComponent,
     PurchasesComponent,
+    CartProductsComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
