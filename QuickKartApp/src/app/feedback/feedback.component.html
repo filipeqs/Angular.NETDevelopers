@@ -1,0 +1,83 @@
+<div class="container">
+  <h1>Feedback Form</h1>
+  <form [formGroup]="feedbackForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name" />
+      <p
+        *ngIf="
+          feedbackForm.controls.name.errors?.required &&
+          feedbackForm.controls.name.touched
+        "
+        class="alert alert-danger"
+      >
+        This field is required
+      </p>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email" />
+      <p
+        *ngIf="
+          feedbackForm.controls.email.errors?.required &&
+          feedbackForm.controls.email.touched
+        "
+        class="alert alert-danger"
+      >
+        This field is required
+      </p>
+      <p
+        *ngIf="
+          feedbackForm.controls.email.errors?.email &&
+          feedbackForm.controls.email.touched
+        "
+        class="alert alert-danger"
+      >
+        This field has to be a valid email
+      </p>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        cols="30"
+        rows="10"
+        formControlName="description"
+        class="form-control"
+      ></textarea>
+      <p
+        *ngIf="
+          feedbackForm.controls.description.errors?.required &&
+          feedbackForm.controls.description.touched
+        "
+        class="alert alert-danger"
+      >
+        This field is required
+      </p>
+      <p
+        *ngIf="
+          feedbackForm.controls.description.errors?.minlength &&
+          feedbackForm.controls.description.touched
+        "
+        class="alert alert-danger"
+      >
+        Message has to be at least 8 characters long
+      </p>
+      <p
+        *ngIf="
+          feedbackForm.controls.description.errors?.maxlength &&
+          feedbackForm.controls.description.touched
+        "
+        class="alert alert-danger"
+      >
+        Message has to be max 100 characters long
+      </p>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="feedbackForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

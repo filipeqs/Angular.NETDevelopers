@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
     ViewProductsComponent,
     LoginComponent,
     RegisterComponent,
+    FeedbackComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
