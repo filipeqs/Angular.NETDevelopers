@@ -12,6 +12,8 @@ import { CommonLayoutComponent } from './layouts/common-layout/common-layout.com
 import { PurchasesComponent } from './purchases/purchases.component';
 import { CartProductsComponent } from './cart-products/cart-products.component';
 import { ViewRatingsComponent } from './view-ratings/view-ratings.component';
+import { HomeComponent } from './home/home.component';
+import { routing } from './app.routing.module';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,15 @@ import { ViewRatingsComponent } from './view-ratings/view-ratings.component';
     PurchasesComponent,
     CartProductsComponent,
     ViewRatingsComponent,
+    HomeComponent,
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    routing,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

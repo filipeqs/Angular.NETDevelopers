@@ -11,6 +11,7 @@
         <th style="text-align: center">Product Name</th>
         <th style="text-align: center">Ratings</th>
         <th style="text-align: center">Date of Purchase</th>
+        <th style="text-align: center">Actions</th>
       </tr>
       <tr
         *ngFor="let rating of ratings"
@@ -45,6 +46,10 @@
           </ng-container>
         </td>
         <td>{{ rating.reviewComments }}</td>
+        <td>
+          <button class="btn">Update Review</button
+          ><button class="btn">Delete Rating</button>
+        </td>
       </tr>
     </table>
   </div>

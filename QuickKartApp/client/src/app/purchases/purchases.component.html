@@ -12,6 +12,7 @@
         <th style="text-align: center">Purchase Name</th>
         <th style="text-align: center">Quantity Purchased</th>
         <th style="text-align: center">Date of Purchase</th>
+        <th style="text-align: center">Actions</th>
       </tr>
       <tr
         *ngFor="let purchase of purchases"
@@ -21,6 +22,7 @@
         <td>{{ purchase.productName }}</td>
         <td>{{ purchase.quantityPurchased }}</td>
         <td>{{ purchase.purchaseDate | date: "dd/MM/yyyy" }}</td>
+        <td><button class="btn">Rate Product</button></td>
       </tr>
     </table>
   </div>
