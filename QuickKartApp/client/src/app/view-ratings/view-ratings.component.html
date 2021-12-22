@@ -1,0 +1,54 @@
+<div class="container" style="text-align: center">
+  <h1>Ratings</h1>
+  <br />
+  <div class="table-responsive">
+    <table
+      class="table"
+      style="border: 5px solid rgba(220, 230, 242, 1)"
+      *ngIf="ratings"
+    >
+      <tr style="background-color: rgba(220, 230, 242, 1); font-size: 12pt">
+        <th style="text-align: center">Product Name</th>
+        <th style="text-align: center">Ratings</th>
+        <th style="text-align: center">Date of Purchase</th>
+      </tr>
+      <tr
+        *ngFor="let rating of ratings"
+        style="background-color: white; font-size: 10pt"
+      >
+        <td>{{ rating.productName }}</td>
+        <td>
+          <ng-container *ngIf="rating.reviewRating == 1">
+            <span class="fa fa-star" style="color: gold"></span>
+          </ng-container>
+          <ng-container *ngIf="rating.reviewRating == 2">
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+          </ng-container>
+          <ng-container *ngIf="rating.reviewRating == 3">
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+          </ng-container>
+          <ng-container *ngIf="rating.reviewRating == 4">
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+          </ng-container>
+          <ng-container *ngIf="rating.reviewRating == 5">
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+            <span class="fa fa-star" style="color: gold"></span>
+          </ng-container>
+        </td>
+        <td>{{ rating.reviewComments }}</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="errorMsg">
+    <h4 class="jumbotron" style="text-align: center">{{ errorMsg }}</h4>
+  </div>
+</div>

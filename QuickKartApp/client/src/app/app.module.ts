@@ -11,6 +11,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { CommonLayoutComponent } from './layouts/common-layout/common-layout.component';
 import { PurchasesComponent } from './purchases/purchases.component';
 import { CartProductsComponent } from './cart-products/cart-products.component';
+import { ViewRatingsComponent } from './view-ratings/view-ratings.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CartProductsComponent } from './cart-products/cart-products.component';
     CommonLayoutComponent,
     PurchasesComponent,
     CartProductsComponent,
+    ViewRatingsComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
