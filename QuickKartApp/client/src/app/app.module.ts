@@ -14,6 +14,7 @@ import { CartProductsComponent } from './cart-products/cart-products.component';
 import { ViewRatingsComponent } from './view-ratings/view-ratings.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing.module';
+import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { routing } from './app.routing.module';
     CartProductsComponent,
     ViewRatingsComponent,
     HomeComponent,
+    CustomerLayoutComponent,
   ],
   imports: [
     BrowserModule,

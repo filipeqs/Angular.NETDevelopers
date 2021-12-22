@@ -5,5 +5,20 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
+  imageSrc: string;
+  userRole: string;
+  customerLayout: boolean = false;
+  commonLayout: boolean = false;
+
+  constructor() {
+    this.imageSrc = '/assets/images/quickKart.png';
+    this.userRole = sessionStorage.getItem('userRole');
+    if (this.userRole == 'Customer') {
+      this.customerLayout = true;
+    } else {
+      this.commonLayout = true;
+    }
+  }
+
   ngOnInit() {}
 }
