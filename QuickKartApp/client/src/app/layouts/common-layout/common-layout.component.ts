@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-common-layout',
@@ -9,16 +10,16 @@ import { Router } from '@angular/router';
 export class CommonLayoutComponent implements OnInit {
   user: string;
 
-  constructor(private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.user = sessionStorage.getItem('userName');
+    this.userService.$user.subscribe((user) => {
+      this.user = user;
+    });
   }
 
   logOut() {
-    sessionStorage.removeItem('userName');
-    sessionStorage.removeItem('userRole');
-    this.user = null;
+    this.userService.logout();
     this.router.navigate(['']);
   }
 }

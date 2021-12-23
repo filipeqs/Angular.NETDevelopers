@@ -10,6 +10,7 @@ import {
 })
 export class AuthGuardService {
   constructor(private _router: Router) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

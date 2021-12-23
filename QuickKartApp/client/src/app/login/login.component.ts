@@ -25,13 +25,9 @@ export class LoginComponent implements OnInit {
         (responseLoginStatus) => {
           this.status = responseLoginStatus;
           this.showDiv = true;
-          if (this.status.toLowerCase() != 'invalid credentials') {
-            this.msg = 'Login Successful';
-            sessionStorage.setItem('userName', form.value.email);
-            sessionStorage.setItem('userRole', this.status);
+          this.msg = responseLoginStatus;
+          if (responseLoginStatus == 'Login Successful') {
             this.router.navigate(['/home']);
-          } else {
-            this.msg = this.status + '. Try again with valid credentials.';
           }
         },
         (responseLoginError) => {
