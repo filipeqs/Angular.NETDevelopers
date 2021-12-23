@@ -54,7 +54,14 @@
         <td>{{ product.categoryId }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.quantityAvailable }}</td>
-        <td><img title="Add to cart" [src]="imageSrc" /></td>
+        <td>
+          <img
+            title="Add to cart"
+            [src]="imageSrc"
+            style="cursor: pointer"
+            (click)="addToCart(product)"
+          />
+        </td>
       </tr>
     </table>
   </div>

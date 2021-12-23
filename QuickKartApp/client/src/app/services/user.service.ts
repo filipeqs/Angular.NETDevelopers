@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
+import { ICart } from '../interfaces/ICart';
 import { IUser } from '../interfaces/IUser';
 
 @Injectable({
@@ -45,6 +46,14 @@ export class UserService {
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('userRole');
     this.$user.next('');
+  }
+
+  addProductToCart(productId: string, emailId: string): Observable<boolean> {
+    var cartObj: ICart;
+    cartObj = { productId, emailId, quantity: 1 };
+    return this.http
+      .post<boolean>(this.baseUrl + '/api/user/AddProductToCart', cartObj)
+      .pipe(catchError(this.errorHandler));
   }
 
   errorHandler(error: HttpErrorResponse) {
