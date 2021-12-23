@@ -50,6 +50,12 @@ export class UserService {
       );
   }
 
+  register(user: IUser) {
+    return this.http
+      .post<boolean>(this.baseUrl + '/api/user/InsertUserDetails', user)
+      .pipe(catchError(this.errorHandler));
+  }
+
   logout() {
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('userRole');
@@ -65,7 +71,6 @@ export class UserService {
   }
 
   errorHandler(error: HttpErrorResponse) {
-    console.error(error);
     return throwError(error.message || 'Server Error');
   }
 }

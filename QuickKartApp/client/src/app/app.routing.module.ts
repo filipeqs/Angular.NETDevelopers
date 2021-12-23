@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PurchasesComponent } from './purchases/purchases.component';
 import { RateProductComponent } from './rate-product/rate-product.component';
+import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { ViewRatingsComponent } from './view-ratings/view-ratings.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'viewProducts',
     component: ViewProductsComponent,

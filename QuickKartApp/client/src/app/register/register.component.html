@@ -85,7 +85,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <div>
-    {{ msg }}
+  <div *ngIf="errorMsg">
+    {{ errorMsg }}
   </div>
 </div>

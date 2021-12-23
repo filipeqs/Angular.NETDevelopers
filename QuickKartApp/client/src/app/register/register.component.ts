@@ -5,6 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IUser } from '../interfaces/IUser';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -13,9 +16,13 @@ import {
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  msg: string;
+  errorMsg: string;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -28,11 +35,28 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.registerForm.value);
     if (this.registerForm.valid) {
-      this.msg = 'Signup Successful';
-    } else {
-      this.msg = 'Try again Later';
+      const user: IUser = {
+        emailId: this.registerForm.controls.emailId.value,
+        userPassword: this.registerForm.controls.password.value,
+        gender: this.registerForm.controls.gender.value,
+        dateOfBirth: this.registerForm.controls.dateOfBirth.value,
+        address: this.registerForm.controls.address.value,
+        roleId: null,
+      };
+
+      this.userService.register(user).subscribe(
+        (isSuccess) => {
+          if (isSuccess) {
+            this.router.navigate(['/login']);
+          } else {
+            this.errorMsg = 'Try again Later';
+          }
+        },
+        (error) => {
+          this.errorMsg = error;
+        }
+      );
     }
   }
 }

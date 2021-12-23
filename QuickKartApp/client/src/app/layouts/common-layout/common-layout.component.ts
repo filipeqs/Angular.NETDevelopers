@@ -17,7 +17,6 @@ export class CommonLayoutComponent implements OnInit {
     this.userService.setUser(this.user);
     this.userService.$user.subscribe((user) => {
       this.user = user;
-      console.log(this.user);
     });
   }
 
