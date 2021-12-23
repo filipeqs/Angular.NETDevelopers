@@ -26,6 +26,12 @@ export class RatingService {
       );
   }
 
+  insertRating(rating: IRating) {
+    return this.http
+      .post<boolean>(this.baseUrl + '/api/rating/InsertRating', rating)
+      .pipe(catchError(this.errorHandler));
+  }
+
   errorHandler(error: HttpErrorResponse) {
     return throwError(error.message || 'Server Error');
   }

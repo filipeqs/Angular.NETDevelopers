@@ -22,7 +22,16 @@
         <td>{{ purchase.productName }}</td>
         <td>{{ purchase.quantityPurchased }}</td>
         <td>{{ purchase.purchaseDate | date: "dd/MM/yyyy" }}</td>
-        <td><button class="btn">Rate Product</button></td>
+        <td>
+          <button
+            class="btn"
+            routerLink="/rate-product/{{ purchase.productId }}/{{
+              purchase.productName
+            }}"
+          >
+            Rate Product
+          </button>
+        </td>
       </tr>
     </table>
   </div>

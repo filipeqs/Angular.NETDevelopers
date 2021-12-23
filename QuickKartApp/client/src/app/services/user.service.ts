@@ -13,6 +13,14 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  setUser(user: string) {
+    this.$user.next(user);
+  }
+
+  getUser() {
+    return this.$user.getValue();
+  }
+
   validateCredentials(id: string, password: string): Observable<string> {
     let userObj: IUser;
     userObj = {

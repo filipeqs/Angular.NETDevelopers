@@ -13,8 +13,11 @@ export class CommonLayoutComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
+    this.user = sessionStorage.getItem('userName');
+    this.userService.setUser(this.user);
     this.userService.$user.subscribe((user) => {
       this.user = user;
+      console.log(this.user);
     });
   }
 

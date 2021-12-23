@@ -20,7 +20,6 @@ export class PurchasesComponent implements OnInit {
   getPurchases() {
     this.purchaseService.getPurchaseDetails().subscribe(
       (purchases) => {
-        console.log(purchases);
         this.purchases = purchases;
       },
       (error) => {

@@ -1,0 +1,74 @@
+<div class="container col-md-8">
+  <h1>Rate Product</h1>
+  <p style="text-align: right">All fields are required</p>
+  <form [formGroup]="ratingForm" (ngSubmit)="submitRating()">
+    <div class="form-group row offset-md-2 mb-2">
+      <label class="col-sm-2 col-form-label"><strong>Product Id</strong></label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="productId" />
+      </div>
+    </div>
+    <div class="form-group row offset-md-2 mb-2">
+      <label class="col-sm-2 col-form-label"
+        ><strong>Product Name</strong></label
+      >
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="productName" />
+      </div>
+    </div>
+    <div class="form-group row offset-md-2 mb-2">
+      <label class="col-sm-2 col-form-label"><strong>Ratings</strong></label>
+      <div class="col-sm-10">
+        <input
+          type="number"
+          class="form-control"
+          formControlName="reviewRating"
+        />
+      </div>
+      <div
+        *ngIf="
+          ratingForm.controls.reviewRating.errors?.required &&
+          ratingForm.controls.reviewRating.touched
+        "
+        style="color: red"
+      >
+        This fiels is required
+      </div>
+      <div
+        *ngIf="ratingForm.controls.reviewRating.errors?.min"
+        style="color: red"
+      >
+        Must be at least 1
+      </div>
+      <div
+        *ngIf="ratingForm.controls.reviewRating.errors?.max"
+        style="color: red"
+      >
+        Must be max 5
+      </div>
+    </div>
+    <div class="form-group row offset-md-2 mb-2">
+      <label class="col-sm-2 col-form-label"
+        ><strong>Review Comments</strong></label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="reviewComments"
+        />
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="ratingForm.invalid"
+    >
+      Rate
+    </button>
+    <button type="submit" class="btn btn-light" routerLink="/viewPurchases">
+      Cancel
+    </button>
+  </form>
+  <div *ngIf="errorMsg">{{ errorMsg }}</div>
+</div>

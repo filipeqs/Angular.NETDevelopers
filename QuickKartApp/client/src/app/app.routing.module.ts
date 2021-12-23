@@ -3,6 +3,7 @@ import { CartProductsComponent } from './cart-products/cart-products.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PurchasesComponent } from './purchases/purchases.component';
+import { RateProductComponent } from './rate-product/rate-product.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { ViewRatingsComponent } from './view-ratings/view-ratings.component';
@@ -18,7 +19,15 @@ const routes: Routes = [
   },
   { path: 'viewCart', component: CartProductsComponent },
   { path: 'viewPurchases', component: PurchasesComponent },
-  { path: 'viewRatings', component: ViewRatingsComponent },
+  {
+    path: 'viewRatings',
+    component: ViewRatingsComponent,
+  },
+  {
+    path: 'rate-product/:productId/:productName',
+    component: RateProductComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: '**', component: HomeComponent },
 ];
 
