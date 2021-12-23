@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { ICart } from '../interfaces/ICart';
+import { ICartProduct } from '../interfaces/ICartProduct';
 import { IUser } from '../interfaces/IUser';
 
 @Injectable({
@@ -67,6 +68,26 @@ export class UserService {
     cartObj = { productId, emailId, quantity: 1 };
     return this.http
       .post<boolean>(this.baseUrl + '/api/user/AddProductToCart', cartObj)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getCartProducts(emailId: string): Observable<ICartProduct[]> {
+    let param = '?emailId=' + emailId;
+    return this.http
+      .get<ICartProduct[]>(
+        'http://localhost:11990/api/user/GetCartProducts' + param
+      )
+      .pipe(catchError(this.errorHandler));
+  }
+
+  updateCartProduct(
+    emailId: string,
+    productId: string,
+    quantity: number
+  ): Observable<boolean> {
+    var cartObj: ICart = { productId, emailId, quantity };
+    return this.http
+      .put<boolean>(this.baseUrl + '/api/user/UpdateCartProducts', cartObj)
       .pipe(catchError(this.errorHandler));
   }
 

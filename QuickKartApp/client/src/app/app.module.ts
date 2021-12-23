@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing.module';
 import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
 import { RateProductComponent } from './rate-product/rate-product.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
+import { UpdateCartComponent } from './update-cart/update-cart.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { RateProductComponent } from './rate-product/rate-product.component';
     HomeComponent,
     CustomerLayoutComponent,
     RateProductComponent,
+    ViewCartComponent,
+    UpdateCartComponent,
   ],
   imports: [
     BrowserModule,
