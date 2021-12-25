@@ -1,4 +1,8 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { ICart } from '../interfaces/ICart';
@@ -88,6 +92,22 @@ export class UserService {
     var cartObj: ICart = { productId, emailId, quantity };
     return this.http
       .put<boolean>(this.baseUrl + '/api/user/UpdateCartProducts', cartObj)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  deleteCartProduct(productId: string) {
+    var cartObj: ICart;
+    const emailId = this.getUser();
+    cartObj = { productId, emailId, quantity: 0 };
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-type': 'application/json' }),
+      body: cartObj,
+    };
+    return this.http
+      .delete<boolean>(
+        this.baseUrl + '/api/user/DeleteCartProduct',
+        httpOptions
+      )
       .pipe(catchError(this.errorHandler));
   }
 

@@ -1,4 +1,4 @@
-<div class="myContent">
+<div class="container">
   <h4>You have added the following products to the cart.</h4>
   <br />
   <div class="table-responsive">
@@ -12,7 +12,7 @@
         <th>Price</th>
         <th>Quantity</th>
         <th>Total Amount</th>
-        <th style="text-align: center" colspan="1">Action</th>
+        <th style="text-align: center" colspan="2">Action</th>
       </tr>
       <tr *ngFor="let product of Products" style="background-color: white">
         <td>{{ product.productName }}</td>
@@ -27,6 +27,14 @@
           >
             Update Quantity
           </button>
+        </td>
+        <td>
+          <img
+            title="Remove from cart"
+            [src]="imageSrc"
+            style="cursor: pointer"
+            (click)="removeProductFromCart(product)"
+          />
         </td>
       </tr>
     </table>

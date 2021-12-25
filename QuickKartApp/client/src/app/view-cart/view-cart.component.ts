@@ -42,7 +42,7 @@ export class ViewCartComponent implements OnInit {
         },
         () => console.log('GetCartProducts method executed successfully')
       );
-      this.imageSrc = 'src/app/quickKart-images/delete-item.jpg';
+      this.imageSrc = '/assets/images/delete-item.jpg';
     }
   }
 
@@ -54,5 +54,24 @@ export class ViewCartComponent implements OnInit {
       prod.quantity,
       prod.quantityAvailable,
     ]);
+  }
+
+  removeProductFromCart(prod: ICartProduct) {
+    this._userService.deleteCartProduct(prod.productId).subscribe(
+      (responseRemoveCartProductStatus) => {
+        this.status = responseRemoveCartProductStatus;
+        if (this.status) {
+          alert('Product deleted successfully.');
+          this.ngOnInit();
+        } else {
+          alert('Product could not be deleted. Please try after sometime.');
+        }
+      },
+      (responseRemoveCartProductError) => {
+        this.errorMsg = responseRemoveCartProductError;
+        alert('Something went wrong. Please try after sometime.');
+      },
+      () => console.log('RemoveProductFromCart method executed successfully')
+    );
   }
 }

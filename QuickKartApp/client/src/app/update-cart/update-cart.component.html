@@ -44,7 +44,7 @@
               type="number"
               name="prodQuantity"
               [ngModel]="quantity"
-              class="form-control"
+              class="form-control mb-2"
               #prodQuantity="ngModel"
               min="1"
               max=""
@@ -68,7 +68,7 @@
           <button
             type="submit"
             [disabled]="updateCartForm.form.invalid"
-            class="btn btn-default"
+            class="btn btn-primary"
           >
             Update
           </button>
