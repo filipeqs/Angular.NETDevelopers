@@ -28,12 +28,12 @@ namespace Infosys.QuickKart.Services.Controllers
             try
             {
                 var ratingList = dal.DisplayAllReviewDetailsByCustomer(emailId);
-                var rating = new Models.Rating();
                 var ratings = new List<Models.Rating>();
                 if (ratingList.Any())
                 {
                     foreach (var rate in ratingList)
                     {
+                        var rating = new Models.Rating();
                         rating.EmailId = rate.EmailId;
                         rating.ProductId = rate.ProductId;
                         rating.ProductName = rate.ProductName;

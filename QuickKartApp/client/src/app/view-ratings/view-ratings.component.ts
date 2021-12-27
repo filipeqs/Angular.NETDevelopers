@@ -20,6 +20,7 @@ export class ViewRatingsComponent implements OnInit {
   getRatings() {
     this.ratingService.displayAllReviewDetailsByEmailId().subscribe(
       (ratings) => {
+        console.log(ratings);
         this.ratings = ratings;
       },
       (error) => {
