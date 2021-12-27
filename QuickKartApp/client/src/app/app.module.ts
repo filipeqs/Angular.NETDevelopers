@@ -18,6 +18,7 @@ import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layo
 import { RateProductComponent } from './rate-product/rate-product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { UpdateCartComponent } from './update-cart/update-cart.component';
+import { UpdateReviewComponent } from './update-review/update-review.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { UpdateCartComponent } from './update-cart/update-cart.component';
     RateProductComponent,
     ViewCartComponent,
     UpdateCartComponent,
+    UpdateReviewComponent,
   ],
   imports: [
     BrowserModule,

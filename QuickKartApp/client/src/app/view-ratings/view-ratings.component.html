@@ -47,7 +47,13 @@
         </td>
         <td>{{ rating.reviewComments }}</td>
         <td>
-          <button class="btn">Update Review</button
+          <button
+            class="btn"
+            routerLink="/updateReview/{{ rating.productId }}/{{
+              rating.productId
+            }}/{{ rating.reviewRating }}/{{ rating.reviewComments }}"
+          >
+            Update Review</button
           ><button class="btn">Delete Rating</button>
         </td>
       </tr>

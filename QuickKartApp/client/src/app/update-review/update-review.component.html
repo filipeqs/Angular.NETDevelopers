@@ -1,0 +1,52 @@
+<div class="container">
+  <form [formGroup]="updateReviewForm" (ngSubmit)="updateReview()">
+    <h4 style="text-align: center">Update Review</h4>
+    <h6 style="text-align: right; color: dimgray; font-size: small">
+      All fields are mandatory
+    </h6>
+    <div class="form-group row mb-2">
+      <div class="col-md-2 col-form-label">Product Id</div>
+      <div class="col-md-10">
+        <input
+          readonly
+          type="text"
+          class="form-control"
+          formControlName="productId"
+        />
+      </div>
+    </div>
+    <div class="form-group row mb-2">
+      <div class="col-md-2 col-form-label">Product Name</div>
+      <div class="col-md-10">
+        <input
+          readonly
+          type="text"
+          class="form-control"
+          formControlName="productName"
+        />
+      </div>
+    </div>
+    <div class="form-group row mb-2">
+      <div class="col-md-2 col-form-label">Ratings</div>
+      <div class="col-md-10">
+        <input
+          readonly
+          type="text"
+          class="form-control"
+          formControlName="reviewRating"
+        />
+      </div>
+    </div>
+    <div class="form-group row mb-2">
+      <div class="col-md-2 col-form-label">Review Comments</div>
+      <div class="col-md-10">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="reviewComments"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

@@ -7,6 +7,7 @@ import { RateProductComponent } from './rate-product/rate-product.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UpdateCartComponent } from './update-cart/update-cart.component';
+import { UpdateReviewComponent } from './update-review/update-review.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { ViewRatingsComponent } from './view-ratings/view-ratings.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   {
     path: 'viewRatings',
     component: ViewRatingsComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'rate-product/:productId/:productName',
@@ -39,6 +41,11 @@ const routes: Routes = [
   {
     path: 'updateCart/:productId/:productName/:quantity/:quantityAvailable',
     component: UpdateCartComponent,
+  },
+  {
+    path: 'updateReview/:productId/:productName/:reviewRating/:reviewComments',
+    component: UpdateReviewComponent,
+    canActivate: [AuthGuardService],
   },
   { path: '**', component: HomeComponent },
 ];
