@@ -19,6 +19,7 @@ import { RateProductComponent } from './rate-product/rate-product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { UpdateCartComponent } from './update-cart/update-cart.component';
 import { UpdateReviewComponent } from './update-review/update-review.component';
+import { ContractNamePipe } from './contract-name.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UpdateReviewComponent } from './update-review/update-review.component';
     ViewCartComponent,
     UpdateCartComponent,
     UpdateReviewComponent,
+    ContractNamePipe,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,8 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { IRating } from '../interfaces/IRating';
@@ -36,6 +40,16 @@ export class RatingService {
   updateReviewComments(rating: IRating) {
     return this.http
       .put<boolean>(this.baseUrl + '/api/Rating/UpdateReviewComments', rating)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  deleteRating(rating: IRating) {
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-type': 'application/json' }),
+      body: rating,
+    };
+    return this.http
+      .delete<boolean>(this.baseUrl + '/api/rating/DeleteRating', httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 

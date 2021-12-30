@@ -20,12 +20,28 @@ export class ViewRatingsComponent implements OnInit {
   getRatings() {
     this.ratingService.displayAllReviewDetailsByEmailId().subscribe(
       (ratings) => {
-        console.log(ratings);
         this.ratings = ratings;
       },
       (error) => {
         this.ratings = [];
         this.errorMsg = error;
+      }
+    );
+  }
+
+  deleteRating(rating: IRating) {
+    this.ratingService.deleteRating(rating).subscribe(
+      (status) => {
+        if (status) {
+          alert('Rating Deleted');
+          this.ngOnInit();
+        } else {
+          alert('Error Deleting Rating');
+        }
+      },
+      (error) => {
+        console.log(error);
+        alert('Error Deleting Rating');
       }
     );
   }

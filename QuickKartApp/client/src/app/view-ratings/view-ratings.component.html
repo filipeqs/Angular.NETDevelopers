@@ -54,7 +54,9 @@
             }}/{{ rating.reviewRating }}/{{ rating.reviewComments }}"
           >
             Update Review</button
-          ><button class="btn">Delete Rating</button>
+          ><button class="btn" (click)="deleteRating(rating)">
+            Delete Rating
+          </button>
         </td>
       </tr>
     </table>
